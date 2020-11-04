@@ -1,5 +1,5 @@
 import Head from 'next/head'
-
+import 'bootstrap/dist/css/bootstrap.css';
 import Nav from '@components/Nav'
 import Header from '@components/Header'
 import Card from '@components/Card'
@@ -7,7 +7,7 @@ import Footer from '@components/Footer'
 
 export default function Home({ items }) {
   return (
-    <div className="container">
+    <div >
       <Head>
         <title>My Portfolio Example</title>
         <link rel="icon" href="/favicon.ico" />
@@ -15,7 +15,7 @@ export default function Home({ items }) {
       <Nav />
 
       <main>
-        <Header text="Welcome to my portfolio!" />
+        <Header text="Shoesmart : Better Workflow, Clear Roadmap, and Focused Goal" />
 
         <div className="cards">
           {items?.length &&

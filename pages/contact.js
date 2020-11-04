@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import 'bootstrap/dist/css/bootstrap.css';
 
 import Nav from '@components/Nav'
 import Header from '@components/Header'

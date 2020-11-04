@@ -9,8 +9,10 @@
     "export": "next export"
   },
   "dependencies": {
+    "bootstrap": "^4.5.3",
     "next": "^9.5.4",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "reactstrap": "^8.7.1"
   }
 }
