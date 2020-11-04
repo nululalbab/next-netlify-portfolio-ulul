@@ -4,6 +4,7 @@ import Nav from '@components/Nav'
 import Header from '@components/Header'
 import Card from '@components/Card'
 import Footer from '@components/Footer'
+import Section from '@components/Section'
 
 export default function Home({ items }) {
   return (
@@ -15,8 +16,18 @@ export default function Home({ items }) {
       <Nav />
 
       <main>
-        <Header text="Shoesmart : Better Workflow, Clear Roadmap, and Focused Goal" />
-
+        <Section 
+        title="Shoesmart : Better Workflow, Clear Roadmap, and Focused Goal"
+        subtitle="We got better user acquisition every
+        product launches, increased about
+        91% from July to October. And also
+        our transaction increased about 124%
+        from July to October 2020."
+        hint="Shoesmart is targetting on user acquisition this time and we
+        know that we everytime we launches something, people
+        often sign up on our website."
+        picture={items[0].image}
+        ></Section>
         <div className="cards">
           {items?.length &&
             items.map((i) => {
