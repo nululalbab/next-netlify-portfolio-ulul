@@ -4,8 +4,10 @@ import Nav from '@components/Nav'
 import Header from '@components/Header'
 import Card from '@components/Card'
 import Footer from '@components/Footer'
+import Section from '@components/Section';
+import { fetchEntries } from 'util/contentfulPost'
 
-export default function Home({ items }) {
+export default function Home({ experiences }) {
   return (
     <div >
       <Head>
@@ -16,20 +18,12 @@ export default function Home({ items }) {
 
       <main>
         <Header text="Shoesmart : Better Workflow, Clear Roadmap, and Focused Goal" />
+        {experiences.map((p) => {
+        return <Section key={p.company}  title={p.title} subtitle={p.subtitle} hint={p.hint}  image={p.image.fields}/>
+        return 1
+        })}
 
-        <div className="cards">
-          {items?.length &&
-            items.map((i) => {
-              return (
-                <Card
-                  key={i.title}
-                  title={i.title}
-                  picture={i.image}
-                  link={i.slug}
-                />
-              )
-            })}
-        </div>
+      
       </main>
 
       <Footer />
@@ -77,18 +71,19 @@ export default function Home({ items }) {
     </div>
   )
 }
+// at the bottom of your component file
 
 export async function getStaticProps() {
-  const portfolioData = await import(`../portfolio.json`)
-
-  let slugs = []
-  portfolioData.items.map((i) => {
-    slugs.concat(i.slug)
+  const res = await fetchEntries()
+  const experiences = await res.map((e) => {
+    console.log("masuk asyncs")
+    console.log(e.fields.image.fields)
+    return e.fields
   })
 
   return {
     props: {
-      items: portfolioData.items,
+      experiences,
     },
   }
 }
