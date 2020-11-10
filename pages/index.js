@@ -2,10 +2,14 @@ import Head from 'next/head'
 import 'bootstrap/dist/css/bootstrap.css';
 import Nav from '@components/Nav'
 import Header from '@components/Header'
-import Card from '@components/Card'
+import CardExperiences from '@components/Card'
 import Footer from '@components/Footer'
 import Section from '@components/Section';
 import { fetchEntries } from 'util/contentfulPost'
+import About from '@components/About'
+import { Row, Col, Container  } from 'reactstrap';
+
+
 
 export default function Home({ experiences }) {
   return (
@@ -17,11 +21,16 @@ export default function Home({ experiences }) {
       <Nav />
 
       <main>
-        <Header text="Shoesmart : Better Workflow, Clear Roadmap, and Focused Goal" />
-        {experiences.map((p) => {
-        return <Section key={p.company}  title={p.title} subtitle={p.subtitle} hint={p.hint}  image={p.image.fields}/>
-        return 1
-        })}
+        <Container>
+          <About></About>
+          {experiences.map((p) => {
+          // return <Section key={p.company}  title={p.title} subtitle={p.subtitle} hint={p.hint}  image={p.image.fields}/>
+          // return 1
+          })}
+        <CardExperiences></CardExperiences>
+        </Container>
+      
+      
 
       
       </main>
@@ -52,12 +61,14 @@ export default function Home({ experiences }) {
           justify-content: center;
           align-items: center;
         }
+
       `}</style>
 
       <style jsx global>{`
         html,
         body {
           padding: 0;
+          background: #f4f4f4;
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
@@ -76,8 +87,8 @@ export default function Home({ experiences }) {
 export async function getStaticProps() {
   const res = await fetchEntries()
   const experiences = await res.map((e) => {
-    console.log("masuk asyncs")
-    console.log(e.fields.image.fields)
+    // console.log("masuk asyncs")
+    // console.log(e.fields.image.fields)
     return e.fields
   })
 
