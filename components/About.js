@@ -12,7 +12,7 @@ const About = (props) => {
             <div className='about-content'>
             <Row style={{margin: "20px"}}>
             <Col xs="12" md="4" lg="4"  className="about-image">
-            <img src="/profile.png" alt='about iamge' className="image-about"></img> 
+            <img  style={{widht:"100%",}}src="/profile.png" alt='about iamge' className="image-about"></img> 
             </Col>
             <Col xs="12" md="8"lg="8" className="my-auto">
             <Fade bottom>

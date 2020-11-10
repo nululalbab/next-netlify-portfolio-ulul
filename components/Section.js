@@ -9,10 +9,9 @@ const Section = ({title, subtitle,hint,image}) => {
     <div>
         <Container>
         <Row>
-        <Col xs="6">
+        <Col xs="12" md={6}>
             <Jumbotron>
-            {/* <h1 className="display-8">{title}</h1> */}
-            <h1 className="display-8">Shoesmart : Better Workflow, Clear Roadmap, and Focused Goal</h1>
+            <h1 className="display-8" style={{"word-break": "break-word",}}>{title}</h1>
             <p className="lead">{subtitle}</p>
                 <hr className="my-2" />
                 <p>{hint}</p>
@@ -21,9 +20,9 @@ const Section = ({title, subtitle,hint,image}) => {
                 </p>
             </Jumbotron>
         </Col>
-        <Col xs="6">
+        <Col xs="12" md={6}>
         {/* <Media  src={`https:${file.url}`} /> */}
-        <Media  src='/logo-shoesmart.png' />
+        {/* <Media  src='/logo-shoesmart.png' /> */}
         </Col>
         </Row>
     

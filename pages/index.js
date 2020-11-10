@@ -24,7 +24,8 @@ export default function Home({ experiences }) {
         <Container>
           <About></About>
           {experiences.map((p) => {
-          // return <Section key={p.company}  title={p.title} subtitle={p.subtitle} hint={p.hint}  image={p.image.fields}/>
+            console.log(p)
+          return <Section key={p.company}  title={p.title} subtitle={p.subtitle} hint={p.hint}  image={p.image.fields}/>
           // return 1
           })}
         <CardExperiences></CardExperiences>
