@@ -8,6 +8,7 @@ import Section from '@components/Section';
 import { fetchEntries } from 'util/contentfulPost'
 import About from '@components/About'
 import { Row, Col, Container  } from 'reactstrap';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 
 
@@ -15,7 +16,7 @@ export default function Home({ experiences }) {
   return (
     <div >
       <Head>
-        <title>My Portfolio Example</title>
+        <title>Najibullah Ulul Albab</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
@@ -25,10 +26,10 @@ export default function Home({ experiences }) {
           <About></About>
           {experiences.map((p) => {
             console.log(p)
-          return <Section key={p.company}  title={p.title} subtitle={p.subtitle} hint={p.hint}  image={p.image.fields}/>
-          // return 1
+          // return <Section key={p.company}  title={p.title} subtitle={p.subtitle} hint={p.hint}  image={p.image.fields}/>
+          return <CardExperiences key={p.company}  title={p.title} subtitle={p.subtitle} hint={p.hint}  image={p.image.fields} body={documentToHtmlString(p.body)} ></CardExperiences>
           })}
-        <CardExperiences></CardExperiences>
+        {/* <CardExperiences></CardExperiences> */}
         </Container>
       
       
@@ -88,10 +89,16 @@ export default function Home({ experiences }) {
 export async function getStaticProps() {
   const res = await fetchEntries()
   const experiences = await res.map((e) => {
-    // console.log("masuk asyncs")
-    // console.log(e.fields.image.fields)
+    // console.log(e.fields)
     return e.fields
   })
+
+  // const body = await res.map((richtext) => {
+  //   const rawRichTextField = richtext.fields.body;
+  //   console.log(documentToHtmlString(rawRichTextField));
+  //   return documentToHtmlString(rawRichTextField);
+    
+  // })
 
   return {
     props: {

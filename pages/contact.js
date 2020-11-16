@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <div className="container">
       <Head>
-        <title>My Portfolio | Contact</title>
+        <title>Najibullah Ulul Albab | Contact</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
