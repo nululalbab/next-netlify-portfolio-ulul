@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <>
       <footer>
-        Made with{' '}
+        Made with Next.JS and Contentful on Netlify{' '}
         <img src="/netliheart.svg" alt="Netlify Logo" className="logo" /> for
         you
       </footer>
